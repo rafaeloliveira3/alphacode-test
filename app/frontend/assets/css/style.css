@@ -1,0 +1,85 @@
+:root {
+    --primary-blue : #068ed0;
+}
+
+header {
+    background-color: var(--primary-blue);
+    height: 10rem;
+}
+footer {
+    background-color: var(--primary-blue);
+    height: 10rem;
+}
+footer img {
+    height: 2.5rem;
+}
+.contact-creator {
+    gap: 5em;
+}
+.input-container {
+    width: 45%;
+}
+.text-input label {
+    width: 100%;
+}
+.input-container input[type="text"],
+.input-container input[type="email"] {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+}
+.input-container input[type="text"]:focus,
+.input-container input[type="email"]:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary-blue);
+}
+.text-input label:focus-within {
+    color: var(--primary-blue);
+}
+button[type="submit"] {
+    background-color: var(--primary-blue);
+}
+button[type="submit"]:hover {
+    filter: brightness(1.1);
+}
+
+thead{
+    background-color: var(--primary-blue);
+}
+tbody {
+    box-shadow: 0px 5px 15px 0px #0004;
+}
+table th, table tr{
+    text-align: center;
+}
+table th {
+    padding: .5em;
+}
+table td {
+    padding: 1em;
+}
+tbody tr{
+    border-bottom: 2px solid gray;
+}
+tr:last-child {
+    border-bottom: 0;
+}
+.actions-button {
+    background-color: transparent;
+    border: 0;
+}
+.actions-button:disabled {
+    cursor: not-allowed;
+}
+
+.toast {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 3rem;
+    margin: 0 auto;
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/checkmark.css">
+    <script defer type="module" src="./assets/js/app.js"></script>
+    <link rel="shortcut icon" href="./assets/img/logo_alphacode.png" type="image/png">
+    <title>Cadastro de Contatos</title>
+</head>
+<body>
+    <header class="d-flex align-items-center px-2 rounded-top-4">
+        <div class="d-flex flex-row align-items-center  gap-3">
+            <img src="./assets/img/logo_alphacode.png" alt="alphacode logo">
+            <p class="fs-3 fw-bold text-white">Cadastro de Contatos</p>
+        </div>
+    </header>
+    <main>
+        <section class="py-5 px-5 border-bottom border-2 border-dark-subtle" id="form-container">
+            <form id="contact-creator" class="contact-creator d-flex flex-column fw-semibold text-body-secondary">
+                <div class="d-flex justify-content-xl-between flex-wrap gap-5 fs-5">
+                    <div class="input-container text-input">
+                        <label>Nome completo
+                            <input required id="name-input" placeholder="Ex.: Letícia Pacheco dos Santos" class="px-2 py-2" type="text">
+                        </label>
+                    </div>
+                    <div class="input-container text-input">
+                        <label>Data de nascimento
+                            <input required minlength="8" id="birth-input" placeholder="Ex.: 03/10/2003" class="px-2 py-2" type="text">
+                        </label>
+                    </div>
+                    <div class="input-container text-input">
+                        <label>E-mail
+                            <input required id="email-input" placeholder="Ex.: leticia@gmail.com" type="email" class="px-2 py-2">
+                        </label>
+                    </div>
+                    <div class="input-container text-input">
+                        <label>Profissão
+                            <input required id="profession-input" placeholder="Ex.: Desenvolvedora Web" type="text" class="px-2 py-2">
+                        </label>
+                    </div>
+                    <div class="input-container text-input">
+                        <label>Telefone para contato
+                            <input minlength="14" id="phone-input" placeholder="Ex.: (11) 4033-2019" type="text" class="px-2 py-2">
+                        </label>
+                    </div>
+                    <div class="input-container text-input">
+                        <label>Celular para contato
+                            <input required minlength="15" id="cellphone-input" placeholder="Ex.: (11) 98493-2039" type="text" class="px-2 py-2">
+                        </label>
+                    </div>    
+                </div>
+                <div class="d-flex justify-content-xl-between flex-wrap gap-5 fs-5">
+                    <div class="input-container d-flex align-items-start gap-3">
+                        <input type="checkbox" id="has-whatsapp">
+                        <label class="checkmark" for="has-whatsapp"></label>
+                        <label for="has-whatsapp" class="checkbox-label">Número de celular possui Whatsapp</label>
+                    </div>
+                    <div class="input-container d-flex align-items-center gap-3">
+                        <input type="checkbox" id="email-notific">
+                        <label class="checkmark" for="email-notific"></label>
+                        <label for="email-notific" class="checkbox-label">Enviar notificações por E-mail</label>
+                    </div>
+                    <div class="input-container d-flex align-items-center gap-3">
+                        <input type="checkbox" id="sms-notific">
+                        <label class="checkmark" for="sms-notific"></label>
+                        <label for="sms-notific" class="checkbox-label">Enviar notificações por SMS</label>
+                    </div>
+                </div>
+                <div class="d-flex gap-5 justify-content-end">
+                    <button class="fs-4 px-4 py-2 border border-0 rounded text-white fw-semibold text-bg-danger hide" id="button-cancel" type="button">Cancelar</button>
+                    <button class="fs-4 px-4 py-2 border border-0 rounded text-white fw-semibold" id="button-submit" type="submit">Cadastrar Contato</button>
+                </div>
+            </form>
+        </section>
+        <section class="py-5 px-5">
+            <div class="d-flex justify-content-center">
+                <table class="container-fluid fs-5">
+                    <thead>
+                        <tr class="text-white">
+                            <th scope="col">Nome</th>
+                            <th scope="col">Data de Nascimento</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Celular para Contato</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="d-flex justify-content-between align-items-center px-5 rounded-bottom-4 fs-4">
+        <div>
+            <span class="text-white">Termos | Políticas</span>
+        </div>
+        <div>
+            <span class="text-white">&copy; Copyright 2023 | Desenvolvido por </span>
+            <img src="./assets/img/logo_rodape_alphacode.png" alt="alphacode logo alternativa">
+        </div>
+        <div>
+            <span class="text-white">&copy; Alphacode IT Solutions 2023</span>
+        </div>
+    </footer>
+
+    <!-- Toasts -->
+    <div class="toast" id="toast-register-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header text-bg-success" data-bs-theme="dark">
+            <strong class="me-auto">Contato criado com Sucesso</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="register-toast-body-success">
+            
+        </div>
+    </div>
+    <div class="toast" id="toast-register-failure" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header text-bg-danger" data-bs-theme="dark">
+            <strong class="me-auto">Oops! Algo deu errado</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="register-toast-body-failure">
+            
+        </div>
+    </div>
+    <div class="toast" id="toast-contact-deletion" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header text-bg-danger" data-bs-theme="dark">
+            <strong class="me-auto">Ação Irreversível!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" id="button-delete-close" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="delete-toast-body">
+            Deseja realmente apagar este contato? Essa ação é irreversível!
+        </div>
+        <div class="toast-body mt-2 pt-2 border-top">
+            <button type="button" class="btn btn-danger btn-sm" id="button-delete-confirm">Confirmar</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="button-delete-cancel"  data-bs-dismiss="toast">Cancelar</button>
+        </div>
+    </div>
+</body>
+</html>
